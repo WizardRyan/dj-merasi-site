@@ -1,0 +1,42 @@
+.container{
+    height: 100%;
+    width: 100%;
+}
+
+.title{
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+}
+
+.sidenav {
+    width: 200px;
+    background-color: black;
+}
+
+.sidenav-child{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.list{
+    width: 100%;
+}
+
+.list a{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.nav-link-text{
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+}
+
+.nav-content{
+    background-color: black;
+}

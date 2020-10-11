@@ -1,0 +1,31 @@
+<mat-sidenav-container class="container">
+    <mat-sidenav #drawer
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false"
+      class="sidenav">
+      <div class="sidenav-child">
+          <mat-nav-list class="list">
+              <a mat-list-item routerLink="/home"><span class="nav-link-text">Home</span></a>
+              <a mat-list-item routerLink="/contact"><span class="nav-link-text">Contact Me</span></a>
+              <a mat-list-item routerLink="/about"><span class="nav-link-text">About</span></a>
+          </mat-nav-list>
+      </div>
+    <!-- <mat-toolbar class="console-text"></mat-toolbar> -->
+    </mat-sidenav>
+  
+  <mat-sidenav-content class="nav-content" (swipeRight)="drawer.open()">
+    <mat-toolbar color="primary" style="background: #8347cc;">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async"
+        >
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="title">DJ MERASI</span>
+    </mat-toolbar>
+      <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
