@@ -1,4 +1,4 @@
-<mat-sidenav-container class="container">
+<mat-sidenav-container class="container" (swipeLeft)="drawer.close()">
     <mat-sidenav #drawer
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false"
@@ -14,18 +14,19 @@
     </mat-sidenav>
   
   <mat-sidenav-content class="nav-content" (swipeRight)="drawer.open()">
-    <mat-toolbar color="primary" style="background: #8347cc;">
+    <mat-toolbar color="primary" style="background:black;">
       <button
         type="button"
         aria-label="Toggle sidenav"
         mat-icon-button
         (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async"
+        *ngIf="!drawer.opened"
         >
         <mat-icon>menu</mat-icon>
       </button>
       <span class="title">DJ MERASI</span>
     </mat-toolbar>
+    <mat-divider></mat-divider>
       <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

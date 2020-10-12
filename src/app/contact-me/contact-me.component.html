@@ -1,1 +1,38 @@
-<p>contact-me works!</p>
+<div class="container">
+    <h2>Send a request or ask me a question</h2>
+    <div class="form-container">
+        <mat-form-field appearance="outline" color="accent" #field>
+            <mat-label>Name</mat-label>
+            <input [(ngModel)]="name" matInput placeholder="Ex: John Stevens">
+        </mat-form-field>
+        <mat-form-field appearance="outline" color="accent" #field>
+            <mat-label>Email</mat-label>
+            <input [(ngModel)]="email" type="email" matInput placeholder="Ex: john.stevens@gmail.com">
+        </mat-form-field>
+        <mat-form-field appearance="outline" color="accent" #field>
+            <mat-label>Number</mat-label>
+            <input [(ngModel)]="number" matInput placeholder="Ex: 801-123-4567">
+        </mat-form-field>
+        <mat-form-field appearance="outline" color="accent" #field>
+            <mat-label>Type of Event</mat-label>
+            <mat-select [(ngModel)]="typeOfEvent">
+                <mat-option *ngFor="let event of eventTypes" [value]="event">
+                    {{event}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline" color="accent" #field>
+            <mat-label>Preferred Method Of Contact</mat-label>
+            <mat-select [(ngModel)]="methodOfContact">
+                <mat-option *ngFor="let method of methodsOfContact" [value]="method">
+                    {{method}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline" color="accent">
+            <mat-label>Addtional Comments</mat-label>
+            <textarea [(ngModel)]="comments" matInput class="comments-textarea"></textarea>
+        </mat-form-field>
+        <button mat-raised-button color="accent" (click)="submit()">Submit</button>
+    </div>
+</div>
