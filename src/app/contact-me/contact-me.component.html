@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" [ngClass]="{'container-margin' : isHandset$ | async}">
     <h2>Send a request or ask me a question</h2>
     <div class="form-container">
         <mat-form-field appearance="outline" color="accent" #field>
@@ -33,6 +33,6 @@
             <mat-label>Addtional Comments</mat-label>
             <textarea [(ngModel)]="comments" matInput class="comments-textarea"></textarea>
         </mat-form-field>
-        <button mat-raised-button color="accent" (click)="submit()">Submit</button>
+        <button mat-raised-button color="accent" (click)="submit()" [ngClass]="{'submit-button': isHandset$ | async }">Submit</button>
     </div>
 </div>

@@ -15,6 +15,7 @@ import * as Hammer from 'hammerjs';
 
 import {HammerModule, HammerGestureConfig, HAMMER_GESTURE_CONFIG} from '@angular/platform-browser';
 
+import {HttpClientModule} from '@angular/common/http';
 
 @Injectable()
 export class MyHammerConfig extends HammerGestureConfig {
@@ -30,7 +31,7 @@ export class MyHammerConfig extends HammerGestureConfig {
     NavigationComponent,
     HomeComponent,
     AboutComponent,
-    ContactMeComponent
+    ContactMeComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +39,8 @@ export class MyHammerConfig extends HammerGestureConfig {
     BrowserAnimationsModule,
     MaterialModule,
     HammerModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [{
     provide: HAMMER_GESTURE_CONFIG,

@@ -40,3 +40,16 @@
 .nav-content{
     background-color: black;
 }
+
+.toolbar{
+    background-color: black;
+}
+
+.divider{
+    margin-bottom: 25px;
+}
+
+router-outlet{
+    width: 100%;
+    height: 100%;
+}

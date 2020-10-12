@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import {MailService} from '../mail.service';
+import {Email} from '../email';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
+import { Observable } from 'rxjs';
+import { map, shareReplay } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-contact-me',
@@ -7,7 +14,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactMeComponent implements OnInit {
 
-  constructor() { }
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+  .pipe(
+    map(result => result.matches),
+    shareReplay()
+  );
+
+  constructor(private mailService: MailService, private snackBar: MatSnackBar, private breakpointObserver : BreakpointObserver) { }
 
   ngOnInit(): void {
   }
@@ -23,12 +36,25 @@ export class ContactMeComponent implements OnInit {
   methodOfContact: string;
 
   submit(): void{
-    this.name = "";
-    this.email = "";
-    this.number = "";
-    this.typeOfEvent = "";
-    this.comments = "";
-    this.methodOfContact = "";
+
+    if (this.typeOfEvent.startsWith("Other")){
+      this.typeOfEvent = "Other";
+    }
+    let message: Email = {name: this.name, email: this.email, number: this.number, typeOfEvent: this.typeOfEvent, comments: this.comments, methodOfContact: this.methodOfContact};
+    this.mailService.sendEmail(message).subscribe(data => {
+      if(data.error){
+        this.snackBar.open(`Failed to Send: ${data.error}`, '', {duration: 3000, panelClass: ['mat-toolbar', 'mat-warn']});
+      }
+      else{
+        this.name = "";
+        this.email = "";
+        this.number = "";
+        this.typeOfEvent = "";
+        this.comments = "";
+        this.methodOfContact = "";
+        this.snackBar.open(`Request Sent!`, '', {duration: 3000, panelClass: ['mat-toolbar', 'mat-primary']});
+      }
+    });
   }
   
 }
