@@ -1,6 +1,7 @@
 .container{
     height: 100%;
     width: 100%;
+    touch-action: pan-y !important;
 }
 
 .title{
@@ -11,7 +12,7 @@
 
 .sidenav {
     width: 200px;
-    background-color: black;
+    background-color: white;
 }
 
 .sidenav-child{
@@ -38,11 +39,13 @@
 }
 
 .nav-content{
-    background-color: black;
+    background-color: white;
+    touch-action: pan-y !important;
+
 }
 
 .toolbar{
-    background-color: black;
+    background-color: white;
 }
 
 .divider{

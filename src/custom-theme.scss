@@ -20,7 +20,7 @@ $dj-merasi-warn: mat-palette($mat-red);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$dj-merasi-theme: mat-dark-theme((
+$dj-merasi-theme: mat-light-theme((
   color: (
     primary: $dj-merasi-primary,
     accent: $dj-merasi-accent,

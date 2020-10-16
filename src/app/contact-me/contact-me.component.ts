@@ -37,8 +37,10 @@ export class ContactMeComponent implements OnInit {
 
   submit(): void{
 
-    if (this.typeOfEvent.startsWith("Other")){
-      this.typeOfEvent = "Other";
+    if(this.typeOfEvent){
+      if (this.typeOfEvent.startsWith("Other")){
+        this.typeOfEvent = "Other";
+      }
     }
     let message: Email = {name: this.name, email: this.email, number: this.number, typeOfEvent: this.typeOfEvent, comments: this.comments, methodOfContact: this.methodOfContact};
     this.mailService.sendEmail(message).subscribe(data => {
@@ -54,6 +56,10 @@ export class ContactMeComponent implements OnInit {
         this.methodOfContact = "";
         this.snackBar.open(`Request Sent!`, '', {duration: 3000, panelClass: ['mat-toolbar', 'mat-primary']});
       }
+    }, 
+    err => {
+      this.snackBar.open(`Failed to Send: Could not connect to server`, '', {duration: 3000, panelClass: ['mat-toolbar', 'mat-warn']});
+      console.log(err);
     });
   }
   
