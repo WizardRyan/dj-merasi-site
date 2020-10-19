@@ -1,7 +1,7 @@
 .container{
     height: 100%;
     width: 100%;
-    touch-action: pan-y !important;
+    /* touch-action: pan-y !important; */
 }
 
 .title{
@@ -40,7 +40,7 @@
 
 .nav-content{
     background-color: white;
-    touch-action: pan-y !important;
+    /* touch-action: pan-y !important; */
 
 }
 

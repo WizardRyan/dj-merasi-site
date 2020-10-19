@@ -20,6 +20,6 @@ export class MailService {
       })
     }
 
-    return this.http.post<any>(`http://djmerasi.com:4010/send-mail`, JSON.stringify(email), options);
+    return this.http.post<any>(`https://djmerasi.com:443/send-mail`, JSON.stringify(email), options);
   }
 }

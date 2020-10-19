@@ -20,7 +20,9 @@ import {HttpClientModule} from '@angular/common/http';
 @Injectable()
 export class MyHammerConfig extends HammerGestureConfig {
   overrides = <any> {
-    swipe: {direction: Hammer.DIRECTION_HORIZONTAL}
+    "swipe": {"direction": Hammer.DIRECTION_HORIZONTAL},
+    "pinch": {"enable": false},
+    "rotate": {"enable": false}
   }
 }
 
